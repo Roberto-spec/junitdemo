@@ -6,7 +6,7 @@ import org.junit.Test;
 public class StringCalculatorTest  {
     @Test
     public void kata01() {
-        Assert.assertEquals(0, StringCalculator.add(null));
+        Assert.assertEquals(0, StringCalculator.add((String) null));
         Assert.assertEquals(0, StringCalculator.add(""));
         Assert.assertEquals(1, StringCalculator.add("1"));
         Assert.assertEquals(3, StringCalculator.add("1,2"));
@@ -39,7 +39,56 @@ public class StringCalculatorTest  {
         Assert.assertEquals(3, StringCalculator.add("//;\n1;2"));
         Assert.assertEquals(5, StringCalculator.add("//*\n2,3"));
         Assert.assertEquals(7, StringCalculator.add("//#\n3#4"));
-//        Assert.assertEquals(2000, StringCalculator.add("1000, 1000"));
-//        Assert.assertEquals(0, StringCalculator.add("1001\n1001"));
+        //Assert.assertEquals( 0, StringCalculator.add("//1\n1 1 1"));
+        //Assert.assertEquals(0, StringCalculator.add("//;\n1#2"));
+    }
+    @Test
+    public void kata06() {
+        Assert.assertEquals(6, StringCalculator.add("//[***]\n1 *** 2 *** 3"));
+        Assert.assertEquals(20, StringCalculator.add("//[xy]\n3xy4xy5xy8"));
+
+    }
+    @Test
+    public void kata07() {
+        Assert.assertEquals(6, StringCalculator.add("// [*] [%] \n1*2%3"));
+        Assert.assertEquals(8, StringCalculator.add("// [&&]  [|||] \n3|||2&&3"));
+
+    }
+    @Test
+    public void kata08() {
+        Assert.assertEquals(14, StringCalculator.add("//[#$]\n1#$2#$3", "// [&&] [|||] \n3 |||2 &&3"));
+        Assert.assertEquals(10, StringCalculator.add("1", "1,2", "1\n2,3"));
+
+    }
+    @Test
+    public void kata09() {
+
+
+    }
+    @Test
+    public void kata10() {
+        Assert.assertEquals(6, StringCalculator.add("// [*] [%] \n1 * 2% 3"));
+        Assert.assertEquals(8, StringCalculator.add("// [&&] [|||]\n3 |||2 &&3"));
+        Assert.assertEquals(7, StringCalculator.add("// [//] \n 1//2//4"));
+        Assert.assertEquals(1998, StringCalculator.add("999,999"));
+        Assert.assertEquals(3, StringCalculator.add("3,1001"));
+        Assert.assertEquals(6, StringCalculator.add("// [*] [%] \n1 * 2% 3"));
+
+    }
+    @Test
+    public void kata11() {
+        Assert.assertEquals(6, StringCalculator.add("2^, 2"));
+        Assert.assertEquals(10, StringCalculator.add("3^\n1"));
+        Assert.assertEquals(8, StringCalculator.add("2^2, 2^2"));
+
+
+    }
+    @Test
+    public void kata12() {
+        Assert.assertEquals(10, StringCalculator.add("2^3, 2"));
+        Assert.assertEquals(31, StringCalculator.add("3^3\n2^2"));
+        Assert.assertEquals(257, StringCalculator.add("//;\n1; 2^8"));
+
+
     }
 }
